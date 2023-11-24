@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    background-color: #0000;
+    border: none;
+    cursor: pointer;
+}
+
+svg {
+    vertical-align: middle;
+}
+
+input {
+    border: none;
+}
