@@ -7,18 +7,18 @@
     --bold_p_color: #29282d;
 }
 
-.creditCalc {
+.loanCalc {
     margin: 194px 210px;
 }
 
-.creditCalc p, .creditCalc pre, .creditCalc button {
+.loanCalc p, .loanCalc pre, .loanCalc button {
     font-family: Montserrat;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
 }
 
-.creditCalc .service_name {
+.loanCalc .service_name {
     color: #000;
     font-family: Roboto;
     font-size: 42px;
@@ -27,7 +27,7 @@
     line-height: normal;
 }
 
-.creditCalc > h2 {
+.loanCalc > h2 {
     color: #000;
     font-family: Montserrat;
     font-size: 24px;
@@ -37,7 +37,7 @@
     margin-top: 15px;
 }
 
-.creditCalc .Form {
+.loanCalc .Form {
     margin: 40px 0 30px 0;
     background-color: #f4f4f5;
     border: 1px solid #90909a;
@@ -45,14 +45,14 @@
     width: fit-content;
 }
 
-.creditCalc .Form p, .creditCalc .Form pre, .creditCalc .Form button {
+.loanCalc .Form p, .loanCalc .Form pre, .loanCalc .Form button {
     font-family: Montserrat;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
 }
 
-.creditCalc .FormInfo {
+.loanCalc .FormInfo {
     margin: 30px;
 }
 
@@ -60,22 +60,22 @@
 
 
 
-.creditCalc .FormInfoInput {
+.loanCalc .FormInfoInput {
     margin-right: 30px;
     padding-right: 30px;
     border-right: 1px solid #dcdcdc;
 }
 
-.creditCalc .FormInfoInput .input_area {
+.loanCalc .FormInfoInput .input_area {
     width: 320px;
     gap: 10px;
 }
 
-.creditCalc .FormInfoInput .input_area > div:last-of-type {
+.loanCalc .FormInfoInput .input_area > div:last-of-type {
     gap: 5px;
 }
 
-.creditCalc .FormInfoInput .input_area > div:last-of-type button {
+.loanCalc .FormInfoInput .input_area > div:last-of-type button {
     color: #000;
     background-color: rgba(144, 144, 154, 0.2);
     font-size: 12px;
@@ -83,17 +83,17 @@
     border-radius: 2px;
 }
 
-.creditCalc .FormInfoInput .input_area:first-of-type ~ .input_area {
+.loanCalc .FormInfoInput .input_area:first-of-type ~ .input_area {
     margin-top: 25px;
 }
 
-.creditCalc .FormInfoInput .input_area > p {
+.loanCalc .FormInfoInput .input_area > p {
     color: #333;
     font-size: 14px;
     font-weight: 500;
 }
 
-.creditCalc .FormInfoInput .input_area > div:first-of-type {
+.loanCalc .FormInfoInput .input_area > div:first-of-type {
     padding: 0 12px;
     background-color:#fff;
     border: 1px solid var(--border_color);
@@ -101,7 +101,7 @@
     gap: 5px;
 }
 
-.creditCalc .FormInfoInput .input_area input {
+.loanCalc .FormInfoInput .input_area input {
     color: #333;
     font-size: 12px;
     margin: 10px 0;
@@ -109,7 +109,7 @@
     outline: none;
 }
 
-.creditCalc .FormInfoInput .input_area > div:first-of-type > p {
+.loanCalc .FormInfoInput .input_area > div:first-of-type > p {
     color: #000;
     text-align: right;
     font-size: 13px;
@@ -122,68 +122,68 @@
 
 
 
-.creditCalc .FormInfoOutput {
+.loanCalc .FormInfoOutput {
     width: fit-content;
 }
 
-.creditCalc .FormInfoOutput > div:first-child {
+.loanCalc .FormInfoOutput > div:first-child {
     margin-bottom: 29px;
 }
 
-.creditCalc .FormInfoOutput > div:first-child > div {
+.loanCalc .FormInfoOutput > div:first-child > div {
     gap: 10px;
 }
 
-.creditCalc .FormInfoOutput > div:first-child p:first-of-type {
+.loanCalc .FormInfoOutput > div:first-child p:first-of-type {
     color: var(--bold_p_color);
     font-size: 26px;
     font-weight: 600;
 }
 
-.creditCalc .FormInfoOutput .comment {
+.loanCalc .FormInfoOutput .comment {
     width: 130px;
     font-size: 12px;
 }
 
-.creditCalc .FormInfoOutput > div:first-child button {
+.loanCalc .FormInfoOutput > div:first-child button {
     width: fit-content;
     height: fit-content;
 }
 
-.creditCalc .FormInfoOutput div:first-child ~ div {
+.loanCalc .FormInfoOutput div:first-child ~ div {
     margin-bottom: 15px;
     gap: 5px;
 }
 
-.creditCalc .FormInfoOutput div:first-child ~ div > div {
+.loanCalc .FormInfoOutput div:first-child ~ div > div {
     width: 100%;
     border-bottom: 1px dashed var(--dashed_border);
     margin-bottom: 4px;
 }
 
-.creditCalc .FormInfoOutput div:first-child ~ div > pre {
+.loanCalc .FormInfoOutput div:first-child ~ div > pre {
     font-size: 16px;
 }
 
-.creditCalc .FormInfoOutput div:first-child ~ div > pre:last-of-type {
+.loanCalc .FormInfoOutput div:first-child ~ div > pre:last-of-type {
     text-align: right;
     font-weight: 600;
 }
 
-.creditCalc .FormInfoOutput svg {
+.loanCalc .FormInfoOutput svg {
     width: 16px;
     height: 16px;
     fill: #90909a;
     vertical-align: text-top;
 }
 
-.creditCalc .FormInfoOutput > button {
+.loanCalc .FormInfoOutput > button {
     border: 2px solid var(--brown);
     border-radius: 4px;
     margin-top: 30px;
 }
 
-.creditCalc .FormInfoOutput > button p {
+.loanCalc .FormInfoOutput > button p {
     color: var(--brown);
     text-align: center;
     font-size: 16px;
@@ -195,11 +195,11 @@
 
 
 
-.creditCalc .Actions {
+.loanCalc .Actions {
     gap: 20px;
 }
 
-.creditCalc .Actions button:first-of-type {
+.loanCalc .Actions button:first-of-type {
     color: #fff;
     font-size: 16px;
     font-weight: 700;
@@ -209,7 +209,7 @@
     border-radius: 4px;
 }
 
-.creditCalc .Actions button:last-of-type {
+.loanCalc .Actions button:last-of-type {
     color: var(--brown);
     text-align: center;
     font-size: 13px;
@@ -222,16 +222,16 @@
 
 
 
-.creditCalc > h2:last-of-type {
+.loanCalc > h2:last-of-type {
     margin: 60px 0 30px 0;
 }
 
-.creditCalc .Calculation {
+.loanCalc .Calculation {
     border-top: 1px solid #000;
     border-left: 1px solid #000;
 }
 
-.creditCalc .Calculation > div {
+.loanCalc .Calculation > div {
     font-family: Montserrat;
     font-style: normal;
     font-weight: 400;
@@ -241,18 +241,18 @@
     border-bottom: 1px solid #000;
 }
 
-.creditCalc .Calculation .title {
+.loanCalc .Calculation .title {
     color: #fff;
     padding: 10px;
     font-weight: bold;
     background-color: #aaa;
 }
 
-.creditCalc .Calculation .summary {
+.loanCalc .Calculation .summary {
     font-weight: bold;
 }
 
-.creditCalc .Calculation #summary {
+.loanCalc .Calculation #summary {
     grid-column-start: 1;
     grid-column-end: 4;
 }

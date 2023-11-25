@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="../../css/creditCalc/position.css">
         <link rel="stylesheet" href="../../css/creditCalc/style.css">
     </head>
-    <body class="creditCalc">
+    <body class="loanCalc">
         <h1 class="service_name">Ипотечный калькулятор</h1>
         <h2>Недвижимость</h2>
         <main class="Form">

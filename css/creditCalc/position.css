@@ -1,32 +1,32 @@
-.creditCalc .Form {
+.loanCalc .Form {
     display: block;
     position: relative;
 }
 
-.creditCalc .FormInfo {
+.loanCalc .FormInfo {
     display: flex;
     position: relative;
     justify-content: space-between;
 }
 
-.creditCalc .FormInfoInput, .creditCalc .FormInfoOutput {
+.loanCalc .FormInfoInput, .loanCalc .FormInfoOutput {
     display: block;
     position: relative;
 }
 
-.creditCalc .FormInfoInput .input_area {
+.loanCalc .FormInfoInput .input_area {
     display: flex;
     position: relative;
     flex-direction: column;
 }
 
-.creditCalc .FormInfoInput .input_area > div:first-of-type {
+.loanCalc .FormInfoInput .input_area > div:first-of-type {
     display: flex;
     position: relative;
     justify-content: space-between;
 }
 
-.creditCalc .FormInfoInput .input_area > div:last-of-type {
+.loanCalc .FormInfoInput .input_area > div:last-of-type {
     display: flex;
     position: relative;
     justify-content: start;
@@ -36,18 +36,18 @@
 
 
 
-.creditCalc .FormInfoOutput {
+.loanCalc .FormInfoOutput {
     display: block;
     position: relative;
 }
 
-.creditCalc .FormInfoOutput > div {
+.loanCalc .FormInfoOutput > div {
     display: flex;
     position: relative;
     justify-content: space-between;
 }
 
-.creditCalc .FormInfoOutput .payment > div {
+.loanCalc .FormInfoOutput .payment > div {
     display: flex;
     position: relative;
     justify-content: start;
@@ -57,7 +57,7 @@
 
 
 
-.creditCalc .Actions {
+.loanCalc .Actions {
     display: flex;
     position: relative;
     justify-content: start;
@@ -68,7 +68,7 @@
 
 
 
-.creditCalc .Calculation {
+.loanCalc .Calculation {
     display: grid;
     position: relative;
     grid-template-columns: repeat(6, 1fr);
