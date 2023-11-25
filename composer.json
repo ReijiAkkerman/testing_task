@@ -1,0 +1,10 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Project\\": "src/app"
+        }
+    },
+    "require": {
+        "pqrs/phploan": "dev-master"
+    }
+}

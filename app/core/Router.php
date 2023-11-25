@@ -1,5 +1,8 @@
 <?php
+    namespace Project;
+
     require_once __DIR__ . '/../control/View.php';
+    require_once __DIR__ . '/../control/Async.php';
 
     class Router {
         public array $URI;
@@ -8,9 +11,10 @@
         public array $args;
 
         public function action(): void {
-            if(!$this->controller) $this->controller = 'View';
-            if(!$this->method) $this->method = 'loadCalc';
-            (new $this->controller)->{$this->method}();
+            if($this->controller && $this->method) $this->args ?
+                (new $this->controller)->{$this->method}($this->args) :
+                (new $this->controller)->{$this->method}();
+            else header('Location: view/loanCalc');
         }
 
         public function __construct() {
@@ -33,12 +37,12 @@
                 exit;
             }
             $controllerPart = file_exists(__DIR__ . '/../control/' . ucfirst($this->URI[1]) . '.php') ? $this->URI[1] : 'view';
-            $methodPart = method_exists(ucfirst($controllerPart), $this->URI[2]) ? $this->URI[2] : 'error';
+            $methodPart = method_exists('Project\\' . ucfirst($controllerPart), $this->URI[2]) ? $this->URI[2] : 'error';
             $counterPart = count($this->URI);
             $argsPart = [];
             for($i = 3; $i < $counterPart; $i++) $argsPart[] = $this->URI[$i];
 
-            $this->controller = !empty($controllerPart) ? ucfirst($controllerPart) : '';
+            $this->controller = !empty($controllerPart) ? 'Project\\' . ucfirst($controllerPart) : '';
             $this->method = !empty($methodPart) ? $methodPart : '';
             $this->args = !empty($argsPart) ? $argsPart : [];
         }
