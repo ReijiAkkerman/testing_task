@@ -32,6 +32,10 @@
     justify-content: start;
 }
 
+.loanCalc .FormInfoInput .input_area:first-of-type ~ div > div:last-of-type {
+    flex-wrap: wrap;
+}
+
 
 
 
@@ -72,4 +76,63 @@
     display: grid;
     position: relative;
     grid-template-columns: repeat(6, 1fr);
+}
+
+
+
+
+
+@media only screen and (max-width: 960px) and (min-width: 501px) {
+    .loanCalc .FormInfo {
+        display: block;
+        position: relative;
+    }
+
+    .loanCalc .Actions {
+        justify-content: center;
+    }
+}
+
+
+
+
+
+@media only screen and (max-width: 500px) and (min-width: 301px) {
+    .loanCalc .FormInfo {
+        display: block;
+        position: relative;
+    }
+
+    .loanCalc .Actions {
+        flex-direction: column;
+    }
+}
+
+
+
+
+
+@media only screen and (max-width: 350px) {
+    .loanCalc .FormInfo {
+        display: block;
+        position: relative;
+    }
+
+    .loanCalc .Actions {
+        flex-direction: column;
+    }
+
+    .loanCalc .FormInfoOutput > div:first-of-type > div {
+        flex-direction: column-reverse;
+    }
+
+    .loanCalc .FormInfoOutput > div:first-of-type ~ div {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+    }
+
+    .loanCalc .FormInfoOutput > div:first-of-type ~ div > div {
+        display: none;
+    }
 }

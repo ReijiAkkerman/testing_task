@@ -9,7 +9,8 @@
 }
 
 .loanCalc {
-    margin: 194px 210px;
+    /* margin: 194px 210px; */
+    margin: calc(20px + (194 - 20) * ((100vw - 320px) / (1440 - 320))) calc(20px + (210 - 20) * ((100vw - 320px) / (1440 - 320)))
 }
 
 .loanCalc p, .loanCalc pre, .loanCalc button {
@@ -256,4 +257,193 @@
 .loanCalc .Calculation #summary {
     grid-column-start: 1;
     grid-column-end: 4;
+}
+
+
+
+
+
+@media only screen and (max-width: 960px) and (min-width: 501px) {
+    .loanCalc {
+        margin: 20px;
+    }
+
+    .loanCalc h1, .loanCalc h2 {
+        text-align: center;
+    }
+
+    .loanCalc .Form {
+        width: 100%;
+    }
+
+    .loanCalc .FormInfoInput {
+        border-right: none;
+        padding-right: 0;
+        margin-right: 0;
+
+        border-bottom: 1px solid var(--border_color);
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+    }
+
+    .loanCalc .FormInfoInput .input_area {
+        width: 100%;
+    }
+
+
+
+
+
+    .loanCalc .FormInfoOutput {
+        width: 100%;
+    }
+
+    .loanCalc .FormInfoOutput > button {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+
+
+
+    .loanCalc .Calculation {
+        overflow-x: auto;
+        overflow-y: hidden;
+        width: 100%;
+    }
+}
+
+
+
+
+
+@media only screen and (max-width: 500px) and (min-width: 301px) {
+    .loanCalc {
+        margin: 10px;
+    }
+
+    .loanCalc h1, .loanCalc h2 {
+        text-align: center;
+    }
+
+    .loanCalc .Form {
+        width: 100%;
+    }
+
+    .loanCalc .FormInfoInput {
+        border-right: none;
+        padding-right: 0;
+        margin-right: 0;
+        
+        border-bottom: 1px solid var(--border_color);
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+    }
+
+    .loanCalc .FormInfoInput .input_area {
+        width: 100%;
+    }
+
+
+
+
+
+    .loanCalc .FormInfoOutput {
+        width: 100%;
+    }
+
+    .loanCalc .FormInfoOutput > button {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+
+
+
+    .loanCalc .Actions button:last-of-type {
+        margin-bottom: 10px;
+    }
+
+
+
+
+
+    .loanCalc .Calculation {
+        overflow-x: auto;
+        overflow-y: hidden;
+        width: 100%;
+    }
+}
+
+
+
+
+
+@media only screen and (max-width: 350px) {
+    .loanCalc {
+        margin: 10px;
+    }
+
+    .loanCalc h1, .loanCalc h2 {
+        text-align: center;
+    }
+
+    .loanCalc .Form {
+        width: 100%;
+    }
+
+    .loanCalc .FormInfoInput {
+        border-right: none;
+        padding-right: 0;
+        margin-right: 0;
+        
+        border-bottom: 1px solid var(--border_color);
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+    }
+
+    .loanCalc .FormInfoInput .input_area {
+        width: 100%;
+    }
+
+
+
+
+
+    .loanCalc .FormInfoOutput {
+        width: 100%;
+    }
+
+    .loanCalc .FormInfoOutput > button {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .loanCalc .FormInfoOutput > div:first-of-type ~ div > pre:first-of-type {
+        text-align: left;
+    }
+
+    .loanCalc .FormInfoOutput > div:first-of-type ~ div > pre:last-of-type {
+        text-align: left;
+    }
+
+
+
+
+
+    .loanCalc .Actions button:last-of-type {
+        margin-bottom: 10px;
+    }
+
+
+
+
+
+    .loanCalc .Calculation {
+        overflow-x: auto;
+        overflow-y: hidden;
+        width: 100%;
+    }
 }

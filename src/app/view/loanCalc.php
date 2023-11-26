@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Ипотечный калькулятор</title>
         <link rel="stylesheet" href="../../css/position.css">
         <link rel="stylesheet" href="../../css/style.css">
@@ -107,7 +108,7 @@
             </section>
         </main>
         <section class="Actions">
-            <button>Подать заявку онлайн</button>
+            <button onclick="loan.download();">Подать заявку онлайн</button>
             <button>Переслать себе на E-mail</button>
         </section>
         <h2>График платежей</h2>
