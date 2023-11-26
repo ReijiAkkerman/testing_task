@@ -1,0 +1,59 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "fc4661b7a0e28a2fc3983719d984256f",
+    "packages": [
+        {
+            "name": "pqrs/phploan",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pqrs/phploan.git",
+                "reference": "8ac02559793f9bfba0809d0a9fc014967abbe727"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pqrs/phploan/zipball/8ac02559793f9bfba0809d0a9fc014967abbe727",
+                "reference": "8ac02559793f9bfba0809d0a9fc014967abbe727",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PHPLoan": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "pqrs",
+                    "email": "pqrs@pqrs.es"
+                }
+            ],
+            "description": "Calculates the monthly repayments of a loan",
+            "support": {
+                "issues": "https://github.com/pqrs/phploan/issues",
+                "source": "https://github.com/pqrs/phploan/tree/master"
+            },
+            "time": "2018-02-13T18:33:17+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "pqrs/phploan": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.6.0"
+}

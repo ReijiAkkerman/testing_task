@@ -6,26 +6,27 @@
         <link rel="stylesheet" href="../../css/position.css">
         <link rel="stylesheet" href="../../css/style.css">
         <link rel="stylesheet" href="../../css/fonts.css">
-        <link rel="stylesheet" href="../../css/creditCalc/position.css">
-        <link rel="stylesheet" href="../../css/creditCalc/style.css">
+        <link rel="stylesheet" href="../../css/loanCalc/position.css">
+        <link rel="stylesheet" href="../../css/loanCalc/style.css">
+        <link rel="stylesheet" href="../../css/loanCalc/js_position.css">
     </head>
     <body class="loanCalc">
         <h1 class="service_name">Ипотечный калькулятор</h1>
         <h2>Недвижимость</h2>
         <main class="Form">
             <section class="FormInfo">
-                <div class="FormInfoInput">
+                <form class="FormInfoInput">
                     <div class="input_area">
                         <p>Стоимость недвижимости</p>
                         <div>
-                            <input type="text" class="money">
+                            <input type="text" name="principal" class="money">
                             <p>&#8381</p>
                         </div>
                     </div>
                     <div class="input_area">
                         <p>Первоначальный взнос</p>
                         <div>
-                            <input type="text" class="money">
+                            <input type="text" name="first_payment" class="money">
                             <p>&#8381</p>
                         </div>
                         <div>
@@ -40,7 +41,7 @@
                     <div class="input_area">
                         <p>Срок кредита</p>
                         <div>
-                            <input type="text">
+                            <input type="text" name="payments_amount">
                             <p>Лет</p>
                         </div>
                         <div>
@@ -53,7 +54,7 @@
                     <div class="input_area">
                         <p>Процентная ставка</p>
                         <div>
-                            <input type="text">
+                            <input type="text" name="interest">
                             <p>%</p>
                         </div>
                         <div>
@@ -66,7 +67,7 @@
                             <button>10%</button>
                         </div>
                     </div>
-                </div>
+                </form>
                 <div class="FormInfoOutput">
                     <div class="payment">
                         <div>
@@ -99,7 +100,7 @@
                         <div></div>
                         <pre>33 059 &#8381</pre>
                     </div>
-                    <button class="payments">
+                    <button class="payments" onclick="loan.calc()">
                         <p>Вывести график платежей</p>
                     </button>
                 </div>
@@ -111,21 +112,30 @@
         </section>
         <h2>График платежей</h2>
         <section class="Calculation">
+            
+        </section>
+        <script src="../../js/loan.js"></script>
+        <template class="CalculationHeader">
             <div class="title">НОМЕР ПЛАТЕЖА</div>
             <div class="title">ДАТА ПЛАТЕЖА</div>
             <div class="title">ОСТАТОК ДОЛГА</div>
             <div class="title">В ПОГАШЕНИЕ ДОЛГА</div>
             <div class="title">В ПОГАШЕНИЕ ПРОЦЕНТОВ</div>
             <div class="title">ПЛАТЕЖ</div>
-
-            <?php for($i = 0; $i < 12 * 6; $i++) { ?>
-            <div>number</div>
-            <?php } ?>
-
+        </template>
+        <template class="CalculationMain">
+            <div class="number"></div>
+            <div class="payment_date"></div>
+            <div class="balance"></div>
+            <div class="principal"></div>
+            <div class="interest"></div>
+            <div class="payment"></div>
+        </template>
+        <template class="CalculationFooter">
             <div class="summary" id="summary">ВСЕГО</div>
-            <div class="summary"></div>
-            <div class="summary"></div>
-            <div class="summary"></div>
-        </section>
+            <div class="summary principal"></div>
+            <div class="summary interests"></div>
+            <div class="summary payments"></div>
+        </template>
     </body>
 </html>

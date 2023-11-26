@@ -1,6 +1,7 @@
 :root {
     --border_color: #dcdcdc;
     --dashed_border: #90909a;
+    --table_border: #000;
     --brown: #b5a08d;
     --input_color: #333;
     --p_color: #000;
@@ -226,19 +227,18 @@
     margin: 60px 0 30px 0;
 }
 
-.loanCalc .Calculation {
-    border-top: 1px solid #000;
-    border-left: 1px solid #000;
-}
-
 .loanCalc .Calculation > div {
     font-family: Montserrat;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     padding: 10px;
-    border-right: 1px solid #000;
-    border-bottom: 1px solid #000;
+    border-right: 1px solid var(--table_border);
+    border-bottom: 1px solid var(--table_border);
+}
+
+.loanCalc .Calculation > div:first-of-type, .loanCalc .Calculation .number, .loanCalc .Calculation #summary {
+    border-left: 1px solid var(--table_border);
 }
 
 .loanCalc .Calculation .title {
@@ -246,6 +246,7 @@
     padding: 10px;
     font-weight: bold;
     background-color: #aaa;
+    border-top: 1px solid var(--table_border);
 }
 
 .loanCalc .Calculation .summary {
