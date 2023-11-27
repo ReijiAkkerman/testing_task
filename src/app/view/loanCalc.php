@@ -20,14 +20,14 @@
                     <div class="input_area">
                         <p>Стоимость недвижимости</p>
                         <div>
-                            <input type="text" name="principal" class="money">
+                            <input type="number" name="principal" class="money" step="10000" min="10000" required pattern="[0-9]+" placeholder="Обязательное поле">
                             <p>&#8381</p>
                         </div>
                     </div>
                     <div class="input_area">
                         <p>Первоначальный взнос</p>
                         <div>
-                            <input type="text" name="first_payment" class="money">
+                            <input type="number" name="first_payment" class="money" step="10000" min="0" pattern="[0-9]+">
                             <p>&#8381</p>
                         </div>
                         <div>
@@ -42,7 +42,7 @@
                     <div class="input_area">
                         <p>Срок кредита</p>
                         <div>
-                            <input type="text" name="payments_amount">
+                            <input type="number" name="payments_amount" step="1" min="0" required pattern="[0-9]+" placeholder="Обязательное поле">
                             <p>Лет</p>
                         </div>
                         <div>
@@ -55,7 +55,7 @@
                     <div class="input_area">
                         <p>Процентная ставка</p>
                         <div>
-                            <input type="text" name="interest">
+                            <input type="text" name="interest" pattern="[0-9]+([\,]?[0-9]+)?" placeholder="Обязательное поле">
                             <p>%</p>
                         </div>
                         <div>
@@ -72,7 +72,7 @@
                 <div class="FormInfoOutput">
                     <div class="payment">
                         <div>
-                            <p class="money">19 835 &#8381</p>
+                            <p class="money">0 &#8381</p>
                             <p class="comment">Ваш ежемесячный платеж</p>
                         </div>
                         <button>
@@ -84,22 +84,22 @@
                     <div class="credit">
                         <pre>Кредит</pre>
                         <div></div>
-                        <pre>2 500 000 &#8381</pre>
+                        <pre>0 &#8381</pre>
                     </div>
                     <div class="interest">
                         <pre>Проценты</pre>
                         <div></div>
-                        <pre>2 260 450 &#8381</pre>
+                        <pre>0 &#8381</pre>
                     </div>
                     <div class="summary">
                         <pre>Проценты + кредит</pre>
                         <div></div>
-                        <pre>4 760 450 &#8381</pre>
+                        <pre>0 &#8381</pre>
                     </div>
                     <div class="income">
                         <pre>Необходимый доход</pre>
                         <div></div>
-                        <pre>33 059 &#8381</pre>
+                        <pre>0 &#8381</pre>
                     </div>
                     <button class="payments" onclick="loan.calc()">
                         <p>Вывести график платежей</p>

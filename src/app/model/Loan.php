@@ -56,6 +56,8 @@
         }
 
         public function getLoanInformation(): void{
+            $this->payments_amount *= 12; 
+
             $MROT = 12084;
             $loan = new externalLoan;
 
@@ -78,13 +80,14 @@
             }
             $loanInfo->interests = round($loanInfo->interests, 1);
             $loanInfo->summary = round($loanInfo->summary, 1);
-            $loanInfo->income = $MROT + $loanInfo->payments[0]->payment;
+            $loanInfo->income = $MROT + round($loanInfo->payments[0]->payment, 1);
             $data = json_encode($loanInfo);
             echo $data;
         }
 
         // Проверяет наличие неверных символов и исправляет их если это возможно
         private function validateValues(): bool {
+            if(!isset($_POST['first_payment'])) $_POST['first_payment'] = '0';
             for($i = 0; $i < sizeof($this->fields); $i++) {
                 $prop = $this->fields[$i];
                 if(isset($_POST[$this->fields[$i]])) {

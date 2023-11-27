@@ -9,8 +9,7 @@
 }
 
 .loanCalc {
-    /* margin: 194px 210px; */
-    margin: calc(20px + (194 - 20) * ((100vw - 320px) / (1440 - 320))) calc(20px + (210 - 20) * ((100vw - 320px) / (1440 - 320)))
+    margin: 194px 210px;
 }
 
 .loanCalc p, .loanCalc pre, .loanCalc button {
@@ -111,6 +110,18 @@
     outline: none;
 }
 
+.loanCalc .FormInfoInput .input_area input::placeholder {
+    color: #0004;
+}
+
+.loanCalc .FormInfoInput .input_area input:invalid {
+    color: #f00;
+}
+
+.loanCalc .FormInfoInput .input_area input:required {
+    color: #000;
+}
+
 .loanCalc .FormInfoInput .input_area > div:first-of-type > p {
     color: #000;
     text-align: right;
@@ -183,6 +194,8 @@
     border: 2px solid var(--brown);
     border-radius: 4px;
     margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .loanCalc .FormInfoOutput > button p {
@@ -298,10 +311,10 @@
         width: 100%;
     }
 
-    .loanCalc .FormInfoOutput > button {
+    /* .loanCalc .FormInfoOutput > button {
         margin-left: auto;
         margin-right: auto;
-    }
+    } */
 
 
 
@@ -353,10 +366,10 @@
         width: 100%;
     }
 
-    .loanCalc .FormInfoOutput > button {
+    /* .loanCalc .FormInfoOutput > button {
         margin-left: auto;
         margin-right: auto;
-    }
+    } */
 
 
 
@@ -416,10 +429,10 @@
         width: 100%;
     }
 
-    .loanCalc .FormInfoOutput > button {
+    /* .loanCalc .FormInfoOutput > button {
         margin-left: auto;
         margin-right: auto;
-    }
+    } */
 
     .loanCalc .FormInfoOutput > div:first-of-type ~ div > pre:first-of-type {
         text-align: left;
