@@ -1,0 +1,47 @@
+{
+    "packages": [
+        {
+            "name": "pqrs/phploan",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pqrs/phploan.git",
+                "reference": "8ac02559793f9bfba0809d0a9fc014967abbe727"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pqrs/phploan/zipball/8ac02559793f9bfba0809d0a9fc014967abbe727",
+                "reference": "8ac02559793f9bfba0809d0a9fc014967abbe727",
+                "shasum": ""
+            },
+            "time": "2018-02-13T18:33:17+00:00",
+            "default-branch": true,
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-0": {
+                    "PHPLoan": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "pqrs",
+                    "email": "pqrs@pqrs.es"
+                }
+            ],
+            "description": "Calculates the monthly repayments of a loan",
+            "support": {
+                "issues": "https://github.com/pqrs/phploan/issues",
+                "source": "https://github.com/pqrs/phploan/tree/master"
+            },
+            "install-path": "../pqrs/phploan"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}
