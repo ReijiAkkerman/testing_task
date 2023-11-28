@@ -1,19 +1,28 @@
 class Loan {
+    validation;
+
     constructor() {
         this.calc = this.calc.bind(this);
     }
 
     calc() {
-        let xhr = new XMLHttpRequest();
-        let form = document.querySelector('.FormInfoInput');
-        let data = new FormData(form);
-        xhr.open('POST', '../async/loan/getLoanInformation');
-        xhr.send(data);
-        xhr.responseType = 'json';
-        xhr.onload = () => {
-            this.#createTable(xhr);
-            this.#completeOutput(xhr);
-        };
+        this.validateFirstPayment();
+        if(this.validation) this.validateInterest();
+        if(this.validation) {
+            let xhr = new XMLHttpRequest();
+            let form = document.querySelector('.FormInfoInput');
+            let data = new FormData(form);
+            xhr.open('POST', '../async/loan/getLoanInformation');
+            xhr.send(data);
+            xhr.responseType = 'json';
+            xhr.onload = () => {
+                this.#createTable(xhr);
+                this.#completeOutput(xhr);
+            };
+        }
+        else {
+            alert('Введите корректные данные');
+        }
     }
 
     download() {
@@ -29,10 +38,17 @@ class Loan {
         let first_payment = document.querySelector('.FormInfoInput .input_area [name="first_payment"]');
         if(+first_payment.value >= +principal.value) {
             first_payment.style.color = '#f00';
+            this.validation = false;
         }
         else {
             first_payment.style.color = '#000';
+            this.validation = true;
         }
+    }
+
+    validateInterest() {
+        let interest = document.querySelector('.FormInfoInput .input_area input[name="interest"]');
+        this.validation = /^[0-9]+([\,]?[0-9]+)?$/.test(interest.value);
     }
 
     pasteFirstPayment(event) {
@@ -45,7 +61,6 @@ class Loan {
         else {
             first_payment.value = 0;
         }
-
         event.preventDefault();
     }
 
@@ -59,6 +74,39 @@ class Loan {
         let field = document.querySelector('.FormInfoInput .input_area [name="interest"]');
         field.value = this.textContent.split('%')[0];
         event.preventDefault();
+    }
+
+    inputComplete() {
+        let input = document.querySelector(`.FormInfoInput .input_area input[type="range"].${this.name}`);
+        input.value = this.value;
+
+        let element = document.querySelector(`.FormInfoInput .input_area div.${this.name}`);
+        let delta = (+input.value / +input.max) * 100;
+        element.style.width = `${delta}%`;
+    }
+
+    sliderComplete() {
+        let input = document.querySelector(`.FormInfoInput .input_area input[name="${this.className}"]`);
+        input.value = this.value;
+
+        let element = document.querySelector(`.FormInfoInput .input_area div.${this.className}`);
+        let delta = (+this.value / this.max) * 100;
+        element.style.width = `${delta}%`;
+    }
+
+    sliderInit() {
+        let array = [
+            'principal',
+            'first_payment',
+            'payments_amount',
+            'interest'
+        ];
+        for(let item of array) {
+            let input = document.querySelector(`.FormInfoInput .input_area input[type="range"].${item}`);
+            let slider = document.querySelector(`.FormInfoInput .input_area .slider.${item}`);
+            let delta = (+input.value / +input.max) * 100;
+            slider.style.width = `${delta}%`;
+        }
     }
 
     #completeOutput(xhr) {
@@ -184,16 +232,27 @@ document.addEventListener('DOMContentLoaded', function() {
         element.addEventListener('click', loan.pasteInterest);
     });
 
-    let array = ['principal', 'first_payment', 'payments_amount', 'interest'];
-    let element;
-    for(let value of array) {
-        element = document.querySelector(`.FormInfoInput .input_area [name="${value}"]`);
-        element.addEventListener('input', loan.validateValue);
-    }
+    elements = document.querySelectorAll('.FormInfoInput .input_area input[pattern]');
+    elements.forEach((element) => {
+        element.addEventListener('input', loan.inputComplete);
+    });
 
-    element = document.querySelector('.FormInfoInput .input_area [name="first_payment"]');
+    elements = document.querySelectorAll('.FormInfoInput .input_area input[type="range"]');
+    elements.forEach((element) => {
+        element.addEventListener('input', loan.sliderComplete);
+    });
+
+    let element = document.querySelector('.FormInfoInput .input_area input[name="first_payment"]');
     element.addEventListener('input', loan.validateFirstPayment);
 
-    element = document.querySelector('.FormInfoInput .input_area [name="principal"]');
+    element = document.querySelector('.FormInfoInput .input_area input[name="principal"]');
     element.addEventListener('input', loan.validateFirstPayment);
+
+    element = document.querySelector('.FormInfoInput .input_area input[type="range"].first_payment');
+    element.addEventListener('input', loan.validateFirstPayment);
+
+    element = document.querySelector('.FormInfoInput .input_area input[type="range"].principal');
+    element.addEventListener('input', loan.validateFirstPayment);
+
+    loan.sliderInit();
 });

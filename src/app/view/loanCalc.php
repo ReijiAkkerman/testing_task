@@ -20,15 +20,27 @@
                     <div class="input_area">
                         <p>Стоимость недвижимости</p>
                         <div>
-                            <input type="number" name="principal" class="money" step="10000" min="10000" required pattern="[0-9]+" placeholder="Обязательное поле">
-                            <p>&#8381</p>
+                            <div class="info">
+                                <input type="number" name="principal" class="money" step="10000" min="10000" value="1000000" required pattern="[0-9]+" placeholder="Обязательное поле">
+                                <p>&#8381</p>
+                            </div>
+                            <div class="wrapper">
+                                <input type="range" min="10000" max="5000000" step="100000" value="1000000" class="principal">
+                                <div class="slider principal"></div>
+                            </div>
                         </div>
                     </div>
                     <div class="input_area">
                         <p>Первоначальный взнос</p>
                         <div>
-                            <input type="number" name="first_payment" class="money" step="10000" min="0" pattern="[0-9]+">
-                            <p>&#8381</p>
+                            <div class="info">
+                                <input type="number" name="first_payment" class="money" step="10000" min="0" value="0" pattern="[0-9]+">
+                                <p>&#8381</p>
+                            </div>
+                            <div class="wrapper">
+                                <input type="range" min="0" max="5000000" step="50000" value="0" class="first_payment">
+                                <div class="slider first_payment"></div>
+                            </div>
                         </div>
                         <div>
                             <button>0%</button>
@@ -42,8 +54,14 @@
                     <div class="input_area">
                         <p>Срок кредита</p>
                         <div>
-                            <input type="number" name="payments_amount" step="1" min="0" required pattern="[0-9]+" placeholder="Обязательное поле">
-                            <p>Лет</p>
+                            <div class="info">
+                                <input type="number" name="payments_amount" step="1" min="0" value="15" max="50" required pattern="[0-9]+" placeholder="Обязательное поле">
+                                <p>Лет</p>
+                            </div>
+                            <div class="wrapper">
+                                <input type="range" min="0" max="20" step="1" value="15" class="payments_amount">
+                                <div class="slider payments_amount"></div>
+                            </div>
                         </div>
                         <div>
                             <button>5 лет</button>
@@ -55,8 +73,14 @@
                     <div class="input_area">
                         <p>Процентная ставка</p>
                         <div>
-                            <input type="text" name="interest" pattern="[0-9]+([\,]?[0-9]+)?" placeholder="Обязательное поле">
-                            <p>%</p>
+                            <div class="info">
+                                <input type="text" name="interest" min="0" value="10" pattern="[0-9]+([\,]?[0-9]+)?" placeholder="Обязательное поле">
+                                <p>%</p>
+                            </div>
+                            <div class="wrapper">
+                                <input type="range" min="0" max="80" step="1" value="10" class="interest">
+                                <div class="slider interest"></div>
+                            </div>
                         </div>
                         <div>
                             <button>0,1%</button>

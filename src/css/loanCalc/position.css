@@ -20,13 +20,24 @@
     flex-direction: column;
 }
 
-.loanCalc .FormInfoInput .input_area > div:first-of-type {
+.loanCalc .FormInfoInput .input_area .info {
     display: flex;
     position: relative;
     justify-content: space-between;
+    align-items: center;
 }
 
-.loanCalc .FormInfoInput .input_area > div:last-of-type {
+.loanCalc .FormInfoInput .input_area .wrapper {
+    display: block;
+    position: relative;
+}
+
+.loanCalc .FormInfoInput .input_area .slider {
+    display: block;
+    position: absolute;
+}
+
+.loanCalc .FormInfoInput .input_area > div ~ div:last-of-type {
     display: flex;
     position: relative;
     justify-content: start;
