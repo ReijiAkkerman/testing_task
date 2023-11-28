@@ -55,34 +55,43 @@
             $this->validateValues();
         }
 
-        public function getLoanInformation(): void{
-            $this->payments_amount *= 12; 
+        public function getLoanInformation(): void {
+            if($_POST['principal'] && $_POST['payments_amount'] && $_POST['interest']) {
+                $this->payments_amount *= 12; 
 
-            $MROT = 12084;
-            $loan = new externalLoan;
+                $MROT = 12084;
+                $loan = new externalLoan;
 
-            $loanInfo = new LoanInfo($this->principal);
+                $loanInfo = new LoanInfo($this->principal);
 
-            $date = new \DateTimeImmutable();
-            $interval = new \DateInterval('P1M');
-            $date = $date->add($interval);
-
-            $delta = $this->principal - $this->first_payment;
-            $schedule = $loan->getSchedule($delta, $this->interest, $this->payments_amount);
-            foreach($schedule as $row) {
-                $row->interest = str_replace(',', '', $row->interest);
-                $row->payment = str_replace(',', '', $row->payment);
-
-                $loanInfo->interests += (float)$row->interest;
-                $loanInfo->summary += (float)$row->payment;
-                $loanInfo->payments[] = new Payment($row->numpayment, $date->format('d.m.o'), $row->balance, $row->principal, $row->interest, $row->payment);
+                $date = new \DateTimeImmutable();
+                $interval = new \DateInterval('P1M');
                 $date = $date->add($interval);
+
+                $delta = $this->principal - $this->first_payment;
+                $schedule = $loan->getSchedule($delta, $this->interest, $this->payments_amount);
+                foreach($schedule as $row) {
+                    $row->interest = str_replace(',', '', $row->interest);
+                    $row->payment = str_replace(',', '', $row->payment);
+
+                    $loanInfo->interests += (float)$row->interest;
+                    $loanInfo->summary += (float)$row->payment;
+                    $loanInfo->payments[] = new Payment($row->numpayment, $date->format('d.m.o'), $row->balance, $row->principal, $row->interest, $row->payment);
+                    $date = $date->add($interval);
+                }
+                $loanInfo->interests = round($loanInfo->interests, 1);
+                $loanInfo->summary = round($loanInfo->summary, 1);
+                $loanInfo->income = $MROT + round($loanInfo->payments[0]->payment, 1);
+                $data = json_encode($loanInfo);
+                echo $data;
             }
-            $loanInfo->interests = round($loanInfo->interests, 1);
-            $loanInfo->summary = round($loanInfo->summary, 1);
-            $loanInfo->income = $MROT + round($loanInfo->payments[0]->payment, 1);
-            $data = json_encode($loanInfo);
-            echo $data;
+            else {
+                echo <<<END
+                {
+                    "error": "Введены некорректные данные"
+                }
+                END;
+            }
         }
 
         // Проверяет наличие неверных символов и исправляет их если это возможно
@@ -91,10 +100,10 @@
             for($i = 0; $i < sizeof($this->fields); $i++) {
                 $prop = $this->fields[$i];
                 if(isset($_POST[$this->fields[$i]])) {
-                    if($_POST[$this->fields[$i]] == 'interest') {
-                        if(preg_match('/[^0-9.]/', $_POST[$this->fields[$i]])) return false;
+                    if($_POST['interest']) {
+                        if(preg_match('/[^0-9,]/', $_POST[$this->fields[$i]])) return false;
                         else {
-                            if(preg_match('/\./', $_POST[$this->fields[$i]])) $this->$prop = (float)$_POST[$this->fields[$i]];
+                            if(preg_match('/\,/', $_POST[$this->fields[$i]])) $this->$prop = (float)str_replace(',', '.', $_POST[$this->fields[$i]]);
                             else $this->$prop = (int)$_POST[$this->fields[$i]];
                         }
                     }

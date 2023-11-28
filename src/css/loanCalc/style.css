@@ -237,6 +237,14 @@
     margin: 14px 41px;
 }
 
+.loanCalc .FormInfoOutput button:hover {
+    background-color: var(--brown);
+}
+
+.loanCalc .FormInfoOutput button:hover p {
+    color: #fff;
+}
+
 
 
 
@@ -251,8 +259,14 @@
     font-weight: 700;
     text-align: center;
     background-color: var(--brown);
-    padding: 14px 20px;
+    padding: 12px 18px;
+    border: 2px solid var(--brown);
     border-radius: 4px;
+}
+
+.loanCalc .Actions button:first-of-type:hover {
+    color: var(--brown);
+    background-color: #0000;
 }
 
 .loanCalc .Actions button:last-of-type {
@@ -262,6 +276,10 @@
     font-weight: 500;
     text-decoration: underline;
     height: fit-content;
+}
+
+.loanCalc .Actions button:last-of-type:hover {
+    color: #000;
 }
 
 
@@ -342,11 +360,6 @@
         width: 100%;
     }
 
-    /* .loanCalc .FormInfoOutput > button {
-        margin-left: auto;
-        margin-right: auto;
-    } */
-
 
 
 
@@ -396,11 +409,6 @@
     .loanCalc .FormInfoOutput {
         width: 100%;
     }
-
-    /* .loanCalc .FormInfoOutput > button {
-        margin-left: auto;
-        margin-right: auto;
-    } */
 
 
 
@@ -459,11 +467,6 @@
     .loanCalc .FormInfoOutput {
         width: 100%;
     }
-
-    /* .loanCalc .FormInfoOutput > button {
-        margin-left: auto;
-        margin-right: auto;
-    } */
 
     .loanCalc .FormInfoOutput > div:first-of-type ~ div > pre:first-of-type {
         text-align: left;

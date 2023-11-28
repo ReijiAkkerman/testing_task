@@ -7,6 +7,7 @@ class Loan {
 
     calc() {
         this.validateFirstPayment();
+        if(this.validation) this.validateTerm();
         if(this.validation) this.validateInterest();
         if(this.validation) {
             let xhr = new XMLHttpRequest();
@@ -16,21 +17,30 @@ class Loan {
             xhr.send(data);
             xhr.responseType = 'json';
             xhr.onload = () => {
-                this.#createTable(xhr);
-                this.#completeOutput(xhr);
+                if(xhr.response.hasOwnProperty("error")) {
+                    alert(xhr.response['error']);
+                }
+                else {
+                    this.#createTable(xhr);
+                    this.#completeOutput(xhr);
+                }
             };
         }
         else {
-            alert('Введите корректные данные');
+            alert('Проверьте корректность введенных данных');
         }
     }
 
     download() {
-
+        alert('Тут загрузка pdf-ки. Если данный функционал необходим - сообщите разработчику)');
     }
 
     sendLoanRequest() {
-        
+        alert('Авторизации нет так что и связываться не с кем!!!');
+    }
+
+    sendToMyEmail() {
+        alert('Увы, но с SMTP протоколом мой создатель еще не работал');
     }
 
     validateFirstPayment() {
@@ -46,9 +56,18 @@ class Loan {
         }
     }
 
+    validateTerm() {
+        let term = document.querySelector('.FormInfoInput .input_area input[name="payments_amount"]');
+        if(term.value == 0) {
+            term.style.color = '#f00';
+            this.validation = false;
+        }
+    }
+
     validateInterest() {
         let interest = document.querySelector('.FormInfoInput .input_area input[name="interest"]');
         this.validation = /^[0-9]+([\,]?[0-9]+)?$/.test(interest.value);
+        if(interest.value == 0) this.validation = false;
     }
 
     pasteFirstPayment(event) {
@@ -61,18 +80,39 @@ class Loan {
         else {
             first_payment.value = 0;
         }
+
+        let input = document.querySelector('.FormInfoInput .input_area input[type="range"].first_payment');
+        let slider = document.querySelector('.FormInfoInput .input_area div.first_payment');
+        input.value = first_payment.value;
+        let delta = (+input.value / +input.max) * 100;
+        slider.style.width = `${delta}%`;
+
         event.preventDefault();
     }
 
     pasteTerm(event) {
         let field = document.querySelector('.FormInfoInput .input_area [name="payments_amount"]');
         field.value = this.textContent.split(' ')[0];
+
+        let input = document.querySelector('.FormInfoInput .input_area input[type="range"].payments_amount');
+        let slider = document.querySelector('.FormInfoInput .input_area div.payments_amount');
+        input.value = field.value;
+        let delta = (+input.value / +input.max) * 100;
+        slider.style.width = `${delta}%`;
+
         event.preventDefault();
     }
 
     pasteInterest(event) {
         let field = document.querySelector('.FormInfoInput .input_area [name="interest"]');
         field.value = this.textContent.split('%')[0];
+
+        let input = document.querySelector('.FormInfoInput .input_area input[type="range"].interest');
+        let slider = document.querySelector('.FormInfoInput .input_area div.interest');
+        input.value = field.value.split(',')[0];
+        let delta = (+input.value / +input.max) * 100;
+        slider.style.width = `${delta}%`;
+
         event.preventDefault();
     }
 
